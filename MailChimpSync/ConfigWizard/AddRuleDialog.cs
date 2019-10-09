@@ -22,6 +22,7 @@ namespace MailChimpSync.ConfigWizard
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Linq;
     using System.Text;
@@ -97,7 +98,9 @@ namespace MailChimpSync.ConfigWizard
                         Title = interest.Name,
                         Id = interest.Id
                     };
-
+#if DEBUG
+                    Debug.WriteLine($"{interest.Id} : {interest.Name}");
+#endif
                     if (interestCategories.Count() > 1)
                     {
                         item.Title = $"{interestCategory.Title}.{item.Title}";

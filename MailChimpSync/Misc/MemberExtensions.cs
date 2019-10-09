@@ -69,7 +69,7 @@ namespace MailChimpSync.Misc
                 member.MergeFields["TV"] = middleName;
             }
 
-            member.MergeFields["LNAME"] = lastName;
+            member.MergeFields["NAME"] = lastName;
         }
 
         /// <summary>
@@ -80,12 +80,7 @@ namespace MailChimpSync.Misc
         /// <returns>true only if the names are equal</returns>
         public static bool EqualFullName(this Member member, Member o)
         {
-            var result = member.MergeFields["FNAME"].Equals(o.MergeFields["FNAME"]);
-            result &= member.MergeFields["LNAME"].Equals(o.MergeFields["LNAME"]);
-            result &= (member.MergeFields["TV"].ToString().Length == 0 && !o.MergeFields.Keys.Contains("TV"))
-                || (member.MergeFields["TV"].ToString() == "-" && !o.MergeFields.Keys.Contains("TV"))
-                || (o.MergeFields["TV"].ToString() == "-" && !member.MergeFields.Keys.Contains("TV"))
-                || member.MergeFields["TV"].Equals(o.MergeFields["TV"]);
+            var result = member.MergeFields["NAME"].Equals(o.MergeFields["NAME"]);
             return result;
         }
 

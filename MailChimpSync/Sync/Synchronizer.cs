@@ -97,6 +97,7 @@ namespace MailChimpSync.Sync
                 {
                     EmailAddress = address,
                     StatusIfNew = Status.Subscribed,
+                    Status = Status.Subscribed,
                     ListId = config.MailingListId,
                 };
 
